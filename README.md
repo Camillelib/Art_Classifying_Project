@@ -6,7 +6,7 @@ This project is my final project for the Ironhack data analytics bootcamp of Mar
 The presentation can be accessed here:
 
 ## Overview
-Using several machine learning models, can we predict the type of a supermarket based on sales data?
+From a dataset containing images of paintings, the goal is to create a machine learning model that will identify their genre (e.g. impressionism). 
 
 ## Process followed
 
