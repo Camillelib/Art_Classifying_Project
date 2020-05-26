@@ -1,7 +1,9 @@
-# Supervised Machine Learning Project
-Classifying a dataset using an optimised ML model with python
+# Classifying art project
+Classifying images of paintings using neural networks and identifying the genre they belong to.
 
-<div><img src="https://angeliquepanagos.com//wp-content/uploads//2016/01//Superma-7660041_630x210.jpg" style="width: 4000px;"></div>
+This project is my final project for the Ironhack data analytics bootcamp of March 2020 and was presented during the Hackshow.
+
+The presentation can be accessed here:
 
 ## Overview
 Using several machine learning models, can we predict the type of a supermarket based on sales data?
@@ -11,60 +13,63 @@ Using several machine learning models, can we predict the type of a supermarket 
 ### Librairies used
 * pandas
 * numpy
+* os
 * matplotlib.pyplot
 * seaborn
 * sklearn
-* xgboost
+* PIL
+* keras
 
 ### Steps
 <b>1. Data collection</b>
-<p>Dataset imported from : https://www.kaggle.com/devashish0507/big-mart-sales-prediction</p>
-
-![Types](https://github.com/Camillelib/Supervised_Machine_Learning_Project/blob/master/Media/1.%20Number%20of%20outlet%20types.png?raw=true)
-
-<b>2. Data cleaning:</b>
- * Deleting 2 columns
- * Deleting ~6000 empty rows  
- * Cleaning the item fat content column
+<p>Dataset imported from : https://www.kaggle.com/ikarus777/best-artworks-of-all-time</p>
   
-<b>3. Data visualisation: </b>
-Understanding the dataset and features.
+<b>3. Data exploration and data cleaning: </b>
+<div>The dataset contains information about 50 painters, more than 8000 images of paintings,  their genre and is classified per painter.</div>
 
-1. General Product Categories
+* Ranking painters per number of paintings 
+On the 50 represented painters, the 3 painters with the most paintings in this dataset are Vincent Van Gogh, Edgar Degas and Pablo Picasso, all of them having more than 400 paintings. 
 
-![Products](https://github.com/Camillelib/Supervised_Machine_Learning_Project/blob/master/Media/2.%20Products.png?raw=true)
+* Nationalities of painters
+The dataset contains 17 different nationalities. French, Dutch and Spanish having the most paintings on this dataset. 
 
-2. Breakdown Per Store Type:
-* Item visibility
+* Genres of painters
+<div>There are a lot of different genres in this dataset, some painters being associated to several genres.</div>
+<div>E.g. Impressionism and Post-Impressionism</div>
+<div>After cleaning the dataset and attributing unique genres to each painter, 16 genres represent all artists and paintings.</div>
 
-![Item visibility](https://github.com/Camillelib/Supervised_Machine_Learning_Project/blob/master/Media/3.%20Average%20visibility%20per%20outlet%20type.png?raw=true)
 
-* Total sales
-
-![Total Sales](https://github.com/Camillelib/Supervised_Machine_Learning_Project/blob/master/Media/4.%20Total%20sales%20per%20outlet%20type.png?raw=true)
-
-![Breakdown](https://github.com/Camillelib/Supervised_Machine_Learning_Project/blob/master/Media/4b.%20Breakdown%20of%20sales%20per%20outlet%20type.png?raw=true)
-
-* Other features: location and age - not included in the models
-
-![others](https://github.com/Camillelib/Supervised_Machine_Learning_Project/blob/master/Media/5.%20Other%20features%20for%20outlet%20type.png?raw=true)
- 
-<b> 4. Data transformation </b>
-
-* Identify and correct correlations
-* Categorize columns containing text using LabelEncoder
-* Standardize numerical columns using BoxCox
-* Identify and correct outliers
+<b> 4. Image transformation </b>
+All the images were resized and converted to numpy arrays. The genres (impressionism, baroque) were also converted to numpy arrays.
 
 <b> 5. Model building </b>
 
-* Splitting the dataset 70/30 for testing and training
+* 1st model
+A first model was built using only one random genre, Baroque, to test the keras library. The accuracy obtained was of 100% since the paintings could only be baroque.
 
-* Building several models and identifying the best one based on its accuracy score:
-![Models](https://github.com/Camillelib/Supervised_Machine_Learning_Project/blob/master/Media/6.%20models%20analysis.png?raw=true)
+* 2nd model
+From the 1st model, a new model was built using all 16 genres with the same structure. However, the first results for this model were really low, with only 22% accuracy.
 
-* Improving the model chosen using RFE:
-In the end, we deleted 2 other features and kept item visibility and outlet sales as variables to classify an outlet.
+* Final model:
+A few improvements were made for the final model:
+
+  * Only the top 5 genres (per number of paintings) were selected, i.e. Impressionism, Renaissance, Post-Impressionism, Symbolism and Baroqu 
+  * Some transformations were performed on training images and added to the set. They consist of 90 degree rotation, random horizontal and vertical flips, and random zoom on overall 1000+ images.
+  * Finally, parameters from the keras.Sequential model were modified, including: adding layers, modifying parameters, and adding a validation split. 
 
 ## Results
-The best model to classify outlets into 4 types for this dataset would be logistic regression. Overall, the 2 most important features identified are the item visibility and outlet sales. 
+The result of this last model were improved, with 57% accuracy rate. 
+
+<div>Test:</div>
+
+
+## Conclusion
+Learnings:
+* How to work with images in data analysis
+* How to build neural network for image classification
+
+Future improvements:
+* Add  images,  painters,  new genres
+* Work on a new dataset where images are already classified per genre (and not painters)
+* Test other machine learning models on this dataset
+
