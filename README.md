@@ -28,10 +28,10 @@ From a dataset containing images of paintings, the goal is to create a machine l
 <div>The dataset contains information about 50 painters, more than 8000 images of paintings,  their genre and is classified per painter.</div>
 
 * Ranking painters per number of paintings 
-On the 50 represented painters, the 3 painters with the most paintings in this dataset are Vincent Van Gogh, Edgar Degas and Pablo Picasso, all of them having more than 400 paintings. 
+<div>On the 50 represented painters, the 3 painters with the most paintings in this dataset are Vincent Van Gogh, Edgar Degas and Pablo Picasso, all of them having more than 400 paintings. </div>
 
 * Nationalities of painters
-The dataset contains 17 different nationalities. French, Dutch and Spanish having the most paintings on this dataset. 
+<div>The dataset contains 17 different nationalities. French, Dutch and Spanish having the most paintings on this dataset. </div>
 
 * Genres of painters
 <div>There are a lot of different genres in this dataset, some painters being associated to several genres.</div>
