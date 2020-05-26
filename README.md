@@ -4,6 +4,7 @@ Classifying images of paintings using neural networks and identifying the genre 
 This project is my final project for the Ironhack data analytics bootcamp of March 2020 and was presented during the Hackshow.
 
 The presentation can be accessed here:
+![Presentation](https://github.com/Camillelib/Art_Classifying_Project/blob/master/Media/Presentation%20-%20Ironhack.png?raw=true)
 
 ## Overview
 From a dataset containing images of paintings, the goal is to create a machine learning model that will identify their genre (e.g. impressionism). 
